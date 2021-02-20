@@ -8,8 +8,8 @@ const Item = require('../../models/Reservation');
 // @route   GET api/reservations
 // @desc    Get All Reservations
 // @access  Public
-router.get('/reservations', (req, res) => {
-  Item.find(req.params.id)
+router.get('/', (req, res) => {
+  Item.find()
     .sort({ date: -1 })
     .then(items => res.json(items));
 });
