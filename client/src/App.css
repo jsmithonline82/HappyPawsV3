@@ -1,0 +1,47 @@
+.remove-btn {
+  margin-right: 0.5rem;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in;
+}
+
+body > #root > div {
+  height: 100vh;
+}
+
+html, body, #app, #app>div {
+  height: 100%
+}
+
+body {
+  background-image: url("./images/mainlastdog.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-align: center;
+  display: table;
+  
+}
+
+ul {
+  list-style-type: none;
+}
