@@ -1,0 +1,18 @@
+
+
+.fixed {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  color: moccasin;
+  text-align: center;
+  display: table;
+}
+
+.two {
+  background-image: url("./images/dirtydog.jpg");
+  
+}
