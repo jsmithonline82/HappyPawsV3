@@ -1,0 +1,17 @@
+.fbl 
+.instl {
+    font-size: 32px;
+
+};
+
+.fa {
+    color: white;
+}
+
+footer {
+    background-color: moccasin;
+    padding-top: 3%;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 5px -40px 85px 30px black;
+}
