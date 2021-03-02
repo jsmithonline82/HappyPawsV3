@@ -1,0 +1,18 @@
+
+
+.fixed {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-align: center;
+  display: table;
+}
+
+.one {
+  background-image: url("./images/dogs-playing-dog_park.jpg");
+  
+}
