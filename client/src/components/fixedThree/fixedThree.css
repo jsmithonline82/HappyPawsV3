@@ -1,0 +1,19 @@
+
+
+.fixed {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  color: black;
+  text-align: center;
+  display: table;
+}
+
+.three {
+  background-image: url("./images/mainlastdog.jpg");
+  
+}
+
