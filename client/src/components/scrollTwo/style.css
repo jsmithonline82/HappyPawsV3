@@ -1,0 +1,17 @@
+.scroll {
+    background-color:moccasin;
+    width: 100%;
+    height: 50%;
+    padding: 10px 70px;
+    color: black;
+    z-index: 1;
+    box-shadow: 5px -40px 100px 30px black;
+  }
+
+  .dog2 {
+    max-width: 25%;
+  }
+
+  .container {
+    max-width: auto;
+  }

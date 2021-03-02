@@ -1,0 +1,13 @@
+.scroll {
+    background-color: moccasin;
+    width: 100%;
+    height: 50%;
+    padding: 10px 70px;
+    color:Black;
+    z-index: 1;
+    box-shadow: 5px -40px 100px 30px black;
+  }
+
+  .ruffs {
+    max-height: 100%;
+  }
