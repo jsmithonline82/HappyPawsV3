@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://MrPaw:PawPaw@users.fkhte.mongodb.net/HappyPaws2?retryWrites=true&w=majority",
+  "jwtSecret": "sl_myJwtSecret"
+}
