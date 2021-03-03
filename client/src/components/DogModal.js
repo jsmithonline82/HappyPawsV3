@@ -13,7 +13,7 @@ import {
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
-import DogName from './dogName';
+// import DogName from './dogName';
 
 
 class ItemModal extends Component {
@@ -94,7 +94,7 @@ class ItemModal extends Component {
                 />
                 <Label for='item'>Dog Breed</Label>
                 <Input
-                  type='text'
+                  type= 'text'
                   name='breed'
                   id='item'
                   placeholder='Dog Breed'

@@ -26,9 +26,9 @@ class DogList extends Component {
       <Container>
         <ListGroup>
           <TransitionGroup className='shopping-list'>
-            {items.map(({ _id, name, breed, weight, age,  image }) => (
+            {items.map(({ _id, name, breed, weight, age, image }) => (
               <CSSTransition key={_id} timeout={500} classNames='fade'>
-                <ListGroupItem style={{ marginBottom:'1rem'}}>
+                <ListGroupItem style={{ marginBottom: '1rem' }}>
                   {this.props.isAuthenticated ? (
                     <Button
                       className='float-left remove-btn'
@@ -45,11 +45,11 @@ class DogList extends Component {
                         <li>Dog Name:  {name}</li>
                         <li>Dog Breed: {breed}</li>
                         <li>Weight: {weight}</li>
-                        <li>Age: {age}</li>                       
+                        <li>Age: {age}</li>
                       </ul>
                     </div>
                     <div className='col'>
-                        <img className='mt-5' src='https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg' alt="/" style={{ maxHeight:'300px'}}></img>
+                      <img className='mt-5' src='https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg' alt="/" style={{ maxHeight: '300px' }}></img>
                     </div>
                   </div>
                 </ListGroupItem>

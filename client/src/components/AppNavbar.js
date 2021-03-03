@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from "react-router-dom"
 import {
   Collapse,
   Navbar,
@@ -6,7 +7,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
+  // NavLink,
   Container
 } from 'reactstrap';
 import { connect } from 'react-redux';
@@ -42,14 +43,17 @@ class AppNavbar extends Component {
           </span>
         </NavItem>
         <NavItem>
-        <a className="navbar-text text-dark mr-3" href="/dashboard">Home <span class="sr-only">(current)</span></a>
+          <Link className="navbar-text text-dark mr-3" to="/dashboard">Home <span class="sr-only">(current)</span></Link>
+          {/* <a className="navbar-text text-dark mr-3" href="/dashboard">Home <span class="sr-only">(current)</span></a> */}
         </NavItem>
         <NavItem>
-        <a className="navbar-text text-dark mr-3" href="/Reservations">Reservations</a>
+          {/* <a className="navbar-text text-dark mr-3" href="/Reservations">Reservations</a> */}
+          <Link className="navbar-text text-dark mr-3" to="/Reservations">Reservations</Link>
         </NavItem>
-        <a className="navbar-text text-dark mr-3" href="/Dogs">Dogs</a>
+        {/* <a className="navbar-text text-dark mr-3" href="/Dogs">Dogs</a> */}
+        <Link className="navbar-text text-dark mr-3" to="/dogs">Dogs</Link>
         <NavItem>
-          <Logout/>
+          <Logout />
         </NavItem>
       </Fragment>
     );
@@ -60,14 +64,14 @@ class AppNavbar extends Component {
           <RegisterModal />
         </NavItem>
         <NavItem>
-          <LoginModal className="text-dark"/>
+          <LoginModal className="text-dark" />
         </NavItem>
       </Fragment>
     );
 
     return (
       <div>
-        <Navbar style={{backgroundColor: "#FFE4B5"}} dark expand='sm' className='mb-5 fixed-top'>
+        <Navbar style={{ backgroundColor: "#FFE4B5" }} dark expand='sm' className='mb-5 fixed-top'>
           <Container>
             <NavbarBrand img src={Logo} alt="" href='/dashboard' className='text-dark'>Happy Paws</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />

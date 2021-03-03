@@ -7,11 +7,21 @@ const Item = require('../../models/Item');
 
 // @route   GET api/items
 // @desc    Get All Items
-// @access  Public
-router.get('/', (req, res) => {
-  Item.find()
+// @access  Private
+router.get('/', auth, (req, res) => {
+  Item.find({
+    userId: req.user.id
+  })
     .sort({ date: -1 })
-    .then(items => res.json(items));
+    .then(items => {
+      console.log(items)
+      res.json(items)
+
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(500)
+    });
 });
 
 // @route   POST api/items
@@ -23,7 +33,8 @@ router.post('/', auth, (req, res) => {
     breed: req.body.breed,
     weight: req.body.weight,
     age: req.body.age,
-    image: req.body.image
+    image: req.body.image,
+    userId: req.user.id
   });
 
   newItem.save().then(item => res.json(item));

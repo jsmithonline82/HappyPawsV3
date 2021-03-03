@@ -10,20 +10,10 @@ import {
   Label,
   Input
 } from 'reactstrap';
-import Select from 'react-select'
-import SelectPage from '../components/ReservationService'
 import { connect } from 'react-redux';
-import { addItem } from '../actions/reservationActions';
+import { addReservation } from '../actions/reservationActions';
 import PropTypes from 'prop-types';
 
-
-//FOR RESERVATION SERVICE DROPDOWN
-
-// const options = [
-//   { value: 'boarding', label: 'Boarding' },
-//   { value: 'grooming', label: 'Grooming' },
-//   { value: 'play date', label: 'Play Date' }
-// ];
 
 class ReservationModal extends Component {
   state = {
@@ -31,8 +21,7 @@ class ReservationModal extends Component {
     name: '',
     service: '',
     time: '',
-    weight: '',
-    image: ''
+    date: ''
   };
 
   static propTypes = {
@@ -47,32 +36,28 @@ class ReservationModal extends Component {
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value,
-                    [e.target.service]: e.target.value,
+                    // [e.target.service]: e.target.value,
                     [e.target.time]: e.target.value,
-                    [e.target.weight]: e.target.value,
-                    [e.target.image]: e.target.files,
+                    [e.target.date]: e.target.value
     });
   };
 
   onSubmit = e => {
     e.preventDefault();
 
-    const newItem = {
+    const newReservation = {
       name: this.state.name,
-      service: this.state.service,
+      // service: this.state.service,
       time: this.state.time,
-      weight: this.state.weight,
-      image: this.state.image
+      date: this.state.date
     };
 
     // Add item via addItem action
-    this.props.addItem(newItem);
+    this.props.addReservation(newReservation);
 
     // Close modal
     this.toggle();
   };
-
-  
 
   render() {
     return (
@@ -84,7 +69,7 @@ class ReservationModal extends Component {
             style={{ marginTop: '2rem', marginBottom: '2rem' }}
             onClick={this.toggle}
           >
-            Add Dog
+            Add Reservation
           </Button>
         ) : (
           <h4 className='mb-3 ml-4'>Please log in to manage items</h4>
@@ -103,25 +88,21 @@ class ReservationModal extends Component {
                   placeholder='Dog Name'
                   onChange={this.onChange}
                 />
-                <Label for='item'>Service</Label>
-                {/* <select className="browser-default custom-select" for='item' onChange={this.onChange}>
-                  <option>Choose your option</option>
-                  <option type='text' id='item' value="1" name='service' onChange={this.onChange}>Option 1</option>
-                </select> */}
-                
-                <Input
-                  type='text'
+                {/* <br />
+                <Label for='service'>Select service type:
+                <select value = {this.state.value} onChange={this.onChange}>
+                  <input type='radio'
                   name='service'
-                  id='item'
-                  placeholder='Sevice'
-                  onChange={this.onChange}
-                />
-                
-
-                {/* DROPDOWN FOR SERVICES */}
-                {/* <Label for='item'>Service</Label>
-                <Select options={options} name='service' onChange={this.onChange}/> */}
-
+                  id='service'
+                  placeholder='Service Type'/>
+  
+                  
+                  <option value="boarding">Boarding</option>
+                  <option value="daycare">Day Care</option>
+                  <option value="grooming">Grooming</option>
+                  </select>
+               </Label>
+               <br /> */}
                 <Label for='item'>Time</Label>
                 <Input
                   type='time'
@@ -133,13 +114,16 @@ class ReservationModal extends Component {
                 <Label for='item'>Date</Label>
                 <Input
                   type='date'
-                  name='weight'
+                  name='date'
                   id='item'
                   placeholder='Date'
                   onChange={this.onChange}
                 />
+                
+                
+               
                 <Button color='dark' style={{ marginTop: '2rem' }} block>
-                  Add Item
+                  Add Reservation
                 </Button>
               </FormGroup>
             </Form>
@@ -151,11 +135,11 @@ class ReservationModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  item: state.item,
+  reservation: state.reservation,
   isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(
   mapStateToProps,
-  { addItem }
+  { addReservation }
 )(ReservationModal);

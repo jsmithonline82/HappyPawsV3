@@ -9,11 +9,15 @@ userId: {
   ref: "user"
 },
   name: {
-    type: mongoose.SchemaTypes.name,
+    type: String,
     required: true,
     ref: "user"
     // dropdowns: {type: [Schema.ObjectId], default: null}
   },
+  // service : {
+  //   type: String,
+  //   required: true
+  // },
 
   time : {
     type: String,

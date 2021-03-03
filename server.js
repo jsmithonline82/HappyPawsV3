@@ -13,19 +13,15 @@ var imgModel = require('./models/Item');
 var multer = require('multer');
 
 var storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-		cb(null, 'uploads')
-	},
-	filename: (req, file, cb) => {
-		cb(null, file.fieldname + '-' + Date.now())
-	}
+  destination: (req, file, cb) => {
+    cb(null, 'uploads')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
 });
 
 var upload = multer({ storage: storage });
-
-
-
-
 
 const app = express();
 
@@ -37,7 +33,7 @@ const db = config.get('mongoURI');
 
 // Connect to Mongo
 mongoose
-  .connect(db, { 
+  .connect(db, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true

@@ -2,31 +2,31 @@ import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { getItems, deleteItem } from '../actions/reservationActions';
+import { getReservations, deleteReservation } from '../actions/reservationActions';
 import PropTypes from 'prop-types';
 
 class ReservationList extends Component {
   static propTypes = {
-    getItems: PropTypes.func.isRequired,
-    item: PropTypes.object.isRequired,
+    getReservation: PropTypes.func.isRequired,
+    reservation: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
   };
 
   componentDidMount() {
-    this.props.getItems();
+    this.props.getReservations();
   }
 
   onDeleteClick = id => {
-    this.props.deleteItem(id);
+    this.props.deleteReservation(id);
   };
 
   render() {
-    const { items } = this.props.item;
+    const { reservations } = this.props.reservation;
     return (
       <Container>
         <ListGroup>
           <TransitionGroup className='shopping-list'>
-            {items.map(({ _id, name, service, time, weight, image }) => (
+            {reservations.map(({ _id, name, time, date  }) => (
               <CSSTransition key={_id} timeout={500} classNames='fade'>
                 <ListGroupItem style={{ marginBottom:'1rem'}}>
                   {this.props.isAuthenticated ? (
@@ -41,11 +41,13 @@ class ReservationList extends Component {
                   ) : null}
                   <ul>
                     <li>Dog Name:  {name}</li>
-                    <li>Service:  {service}</li>
+
                     <li>Time: {time}</li>
-                    <li>Date: {weight}</li>
+                    <li>Date: {date}</li>
                   </ul>
-                  
+                  {/* <input type="radio" id="service" name="service" value="service">
+                    <label for ="service">Service Type: </label>
+                    </input> */}
                 </ListGroupItem>
               </CSSTransition>
             ))}
@@ -57,11 +59,11 @@ class ReservationList extends Component {
 }
 
 const mapStateToProps = state => ({
-  item: state.item,
+  reservation: state.reservation,
   isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(
   mapStateToProps,
-  { getItems, deleteItem }
+  { getReservations, deleteReservation }
 )(ReservationList);

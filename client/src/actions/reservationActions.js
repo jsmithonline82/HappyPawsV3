@@ -1,15 +1,15 @@
 import axios from 'axios';
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from './types';
+import { GET_RESERVATIONS, ADD_RESERVATION, DELETE_RESERVATION, RESERVATIONS_LOADING } from './types';
 import { tokenConfig } from './authActions';
 import { returnErrors } from './errorActions';
 
-export const getItems = () => dispatch => {
-  dispatch(setItemsLoading());
+export const getReservations = () => (dispatch, getState) => {
+  dispatch(setReservationsLoading());
   axios
-    .get('/api/reservations')
+    .get('/api/reservations', tokenConfig(getState))
     .then(res =>
       dispatch({
-        type: GET_ITEMS,
+        type: GET_RESERVATIONS,
         payload: res.data
       })
     )
@@ -18,12 +18,12 @@ export const getItems = () => dispatch => {
     );
 };
 
-export const addItem = item => (dispatch, getState) => {
+export const addReservation = reservation => (dispatch, getState) => {
   axios
-    .post('/api/reservations', item, tokenConfig(getState))
+    .post('/api/reservations', reservation, tokenConfig(getState))
     .then(res =>
       dispatch({
-        type: ADD_ITEM,
+        type: ADD_RESERVATION,
         payload: res.data
       })
     )
@@ -32,12 +32,12 @@ export const addItem = item => (dispatch, getState) => {
     );
 };
 
-export const deleteItem = id => (dispatch, getState) => {
+export const deleteReservation = id => (dispatch, getState) => {
   axios
     .delete(`/api/reservations/${id}`, tokenConfig(getState))
     .then(res =>
       dispatch({
-        type: DELETE_ITEM,
+        type: DELETE_RESERVATION,
         payload: id
       })
     )
@@ -46,8 +46,8 @@ export const deleteItem = id => (dispatch, getState) => {
     );
 };
 
-export const setItemsLoading = () => {
+export const setReservationsLoading = () => {
   return {
-    type: ITEMS_LOADING
+    type: RESERVATIONS_LOADING
   };
 };
