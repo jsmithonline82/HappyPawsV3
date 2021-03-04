@@ -9,6 +9,7 @@ const ItemSchema = new Schema({
   },
   breed: {
     type: String,
+    enum: ['dog2','dog1', 'dog3'],
     required: true
   },
   weight: {
