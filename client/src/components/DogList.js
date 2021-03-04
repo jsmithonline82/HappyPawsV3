@@ -49,7 +49,9 @@ class DogList extends Component {
                       </ul>
                     </div>
                     <div className='col'>
-                      <img className='mt-5' src='https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/dog_cool_summer_slideshow/1800x1200_dog_cool_summer_other.jpg' alt="/" style={{ maxHeight: '300px' }}></img>
+
+                    
+                      <img className='mt-5' src={'/image/'+ breed + '.jpg'} alt="/" style={{ maxHeight: '300px' }}></img>
                     </div>
                   </div>
                 </ListGroupItem>
