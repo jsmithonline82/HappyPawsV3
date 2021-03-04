@@ -36,7 +36,7 @@ class ReservationModal extends Component {
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value,
-                    // [e.target.service]: e.target.value,
+                    [e.target.service]: e.target.value,
                     [e.target.time]: e.target.value,
                     [e.target.date]: e.target.value
     });
@@ -47,7 +47,7 @@ class ReservationModal extends Component {
 
     const newReservation = {
       name: this.state.name,
-      // service: this.state.service,
+      service: this.state.service,
       time: this.state.time,
       date: this.state.date
     };
@@ -88,21 +88,16 @@ class ReservationModal extends Component {
                   placeholder='Dog Name'
                   onChange={this.onChange}
                 />
-                {/* <br />
-                <Label for='service'>Select service type:
-                <select value = {this.state.value} onChange={this.onChange}>
-                  <input type='radio'
+
+                <Label for='item'>Time</Label>
+                <Input
+                  type='text'
                   name='service'
-                  id='service'
-                  placeholder='Service Type'/>
-  
-                  
-                  <option value="boarding">Boarding</option>
-                  <option value="daycare">Day Care</option>
-                  <option value="grooming">Grooming</option>
-                  </select>
-               </Label>
-               <br /> */}
+                  id='item'
+                  placeholder='Service'
+                  onChange={this.onChange}
+                />
+                
                 <Label for='item'>Time</Label>
                 <Input
                   type='time'

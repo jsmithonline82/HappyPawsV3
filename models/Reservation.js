@@ -14,10 +14,10 @@ userId: {
     ref: "user"
     // dropdowns: {type: [Schema.ObjectId], default: null}
   },
-  // service : {
-  //   type: String,
-  //   required: true
-  // },
+  service : {
+    type: String,
+    required: true
+  },
 
   time : {
     type: String,

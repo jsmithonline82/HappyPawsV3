@@ -26,7 +26,7 @@ class ReservationList extends Component {
       <Container>
         <ListGroup>
           <TransitionGroup className='shopping-list'>
-            {reservations.map(({ _id, name, time, date  }) => (
+            {reservations.map(({ _id, name, service, time, date  }) => (
               <CSSTransition key={_id} timeout={500} classNames='fade'>
                 <ListGroupItem style={{ marginBottom:'1rem'}}>
                   {this.props.isAuthenticated ? (
@@ -41,7 +41,7 @@ class ReservationList extends Component {
                   ) : null}
                   <ul>
                     <li>Dog Name:  {name}</li>
-
+                    <li>Service:  {service}</li>
                     <li>Time: {time}</li>
                     <li>Date: {date}</li>
                   </ul>
