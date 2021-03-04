@@ -2,7 +2,7 @@
 
 ## Description
 
-
+Happy Paws is a dog boarding facility that also offers grooming and day care. This application allows Happy Paws clients to make profiles for their dogs and schedule boarding appointments. 
 
 ## User Story
 * As a dog owner
